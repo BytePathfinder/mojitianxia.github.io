@@ -10,11 +10,20 @@
     <div class="container"></div>
     <script>
         (function(){
-            var x = 1;
+            var elapse = localStorage.getItem("elapseTime");
+            if(!elapse){
+                localStorage.setItem("elapseTime",0);
+                elapse = 0;
+            }
+            var circle = 0;
             setInterval(function(){
                 var container = document.querySelector(".container");
-                container.innerHTML= x++;
-                console.log("定时器");
+                container.innerHTML= elapse++;
+                circle++;
+                if(circle%30==0){
+                    localStorage.setItem("elapseTime",elapse);
+                    console.log("local storage save elapse time!");
+                }
             },1000)
         })()
     </script>
