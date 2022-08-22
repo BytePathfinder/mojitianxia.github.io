@@ -10,19 +10,19 @@
     <div class="container"></div>
     <script>
         (function(){
-            var elapse = localStorage.getItem("elapseTime");
-            if(!elapse){
-                localStorage.setItem("elapseTime",0);
-                elapse = 0;
+            var elapsedTime = localStorage.getItem("elapsedTime");
+            if(!elapsedTime){
+                localStorage.setItem("elapsedTime",0);
+                elapsedTime = 0;
             }
             var circle = 0;
             setInterval(function(){
                 var container = document.querySelector(".container");
-                container.innerHTML= elapse++;
+                container.innerHTML= elapsedTime++;
                 circle++;
                 if(circle%30==0){
-                    localStorage.setItem("elapseTime",elapse);
-                    console.log("local storage save elapse time!");
+                    localStorage.setItem("elapsedTime",elapsedTime);
+                    console.log("您在本站点呆了",elapsedTime,"秒。");
                 }
             },1000)
         })()
